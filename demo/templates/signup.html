@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>hayhaytutor</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>  
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="dist/sweetalert.min.js"></script>
+<link rel=stylesheet type="text/css" href="/static/css.css">
+</head>
+<body>
+<nav class="navbar navbar-expand sm bg-dark navbar-dark fixed-top">
+	<a class="navbar-brand" href="home"><b>HAY HAY</b> Tutor</a>
+	
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+	<ul class="navbar-nav">
+		<li class="nav-item">
+			<a class="nav-link" href="home">Home</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="signup">Parent Registration</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="instructor">Instructor</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="question">Common Question</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="reference">Tuition Reference</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="aboutus">About Us</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="contactus">Contact Us</a>
+		</li>
+	</ul>
+	<ul class="navbar-nav ml-auto">
+		<li class="nav-item">
+			<a class="nav-link" href="login">Login</a>
+		</li>
+	</ul>
+</nav>
+</head>
+<article>
+<div class="container bg-grey">
+	<br>
+	<br>
+  <h2>Parents Registration</h2>
+  <div class="row">
+    <div class="col-sm-5">
+	<form action = "/signup" method = "post" id=tutor-reg-form onsubmit="return doR(this);">
+		<div class="form-group">
+			<label for="username">Username:</label>
+			<br><input type="text" class="form-control" id="username" placeholder="Enter Username" name="username">
+		</div>
+		<div class="form-group">
+			<label for="pwd">Password:</label>
+			<br><input type="password" class="form-control" id="pwd" placeholder="Enter Password" name="password">
+		</div>
+		<div class="form-group">
+			<label for="email">Email:</label>
+			<br><input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
+		</div>
+		<div class="form-group">
+			<label for="contactnumber">Conact number:</label>
+			<br><input type="text" class="form-control" id="contactnumber" placeholder="Enter Phone number" name="contactnumber">
+		</div>
+		<div class="dropdown">
+			<label for="areas">Areas:</label>
+			<select name="areas" class="custom-select mb-3">
+      		<option selected>Choose an option</option>
+      		<option value="kow">Kowloon</option>
+     		<option value="new">New Territories</option>
+     		<option value="hkisland">Hong Kong Island</option>
+   			</select>
+		</div>
+		<div class="form-group">
+			<label for="residentialestate">Residence Address:</label>
+			<br><input type="text" class="form-control" id="residentialestate" placeholder="Enter residential estate" name="residentialestate">
+		</div>
+		<div class="form-check-inline">
+  		<label for="studentgender" class="form-check-label">Student Gender:
+   		<br><input type="checkbox" name="studentgender" class="form-check-input" value="m">Male
+   		<input type="checkbox" name="studentgender" class="form-check-input" value="f">Female
+  		</label>
+		</div>
+		<div class="form-group">
+			<label for="salary">Tuition fee:</label>
+			<br><input type="text" class="form-control" id="salary" placeholder="Enter salary" name="salary">/hour
+		</div>
+		<div class="dropdown">
+			<label for="years">Year:</label>
+			<select name="years" class="custom-select mb-3">
+      		<option selected>Choose an option</option>
+      		<option value="king">kindergarden</option>
+     		<option value="p1">P.1</option>
+     		<option value="p2">P.2</option>
+     		<option value="p3">P.3</option>
+     		<option value="p4">P.4</option>
+     		<option value="p5">P.5</option>
+     		<option value="p6">P.6</option>
+      		<option value="s1">S.1</option>
+      		<option value="s2">S.2</option>
+      		<option value="s3">S.3</option>
+      		<option value="s4">S.4</option>
+      		<option value="s5">S.5</option>
+      		<option value="s6">S.6</option>
+      		<option value="u">University</option>
+   			</select>
+		</div>
+		<div class="form-check-inline">
+  		<label for="subject" class="form-check-label" id="isFlag">Subject:
+   		<br><input type="checkbox" name="subject" class="form-check-input" value="wsubject">Whole Subject
+   		<input type="checkbox" name="subject" class="form-check-input" value="english">English
+   		<input type="checkbox" name="subject" class="form-check-input" value="chinese">Chinese
+   		<input type="checkbox" name="subject" class="form-check-input" value="maths">Maths
+   		<input type="checkbox" name="subject" class="form-check-input" value="ls">Liberal Studies
+   		<input type="checkbox" name="subject" class="form-check-input" value="history">History
+   		<input type="checkbox" name="subject" class="form-check-input" value="bio">Biology
+   		<input type="checkbox" name="subject" class="form-check-input" value="chem">Chemisty
+   		<input type="checkbox" name="subject" class="form-check-input" value="phy">Physics
+   		<input type="checkbox" name="subject" class="form-check-input" value="econ">Economics
+   		<input type="checkbox" name="subject" class="form-check-input" value="bafs">BAFS
+   		<input type="checkbox" name="subject" class="form-check-input" value="geog">Geography
+   		<input type="checkbox" name="subject" class="form-check-input" value="ict">ICT
+   		<input type="checkbox" name="subject" class="form-check-input" value="chistory">Chinese History
+   		<input type="checkbox" name="subject" class="form-check-input" value="ohers">Others
+		</div>
+		<div class="dropdown">
+			<label for="week"><br>Frequency of lessons:</label>
+			<select name="week" class="custom-select mb-3">
+      		<option selected>Choose an option</option>
+      		<option value="1">one time a week</option>
+     		<option value="2">two times a week</option>
+      		<option value="3">three times a week</option>
+      		<option value="4">four times a week</option>
+      		<option value="5">five times a week</option>
+      		<option value="6">six times a week</option>
+      		<option value="7">whole week</option>
+   			</select>
+		</div>
+		<div class="dropdown">
+			<label for="hour">Lesson duration:</label>
+			<select name="hour" class="custom-select mb-3">
+      		<option selected>Choose an option</option>
+      		<option value="0.5">30 minutes</option>
+     		<option value="1">one hour</option>
+      		<option value="1.5">One and a half hour</option>
+      		<option value="2">Two hours</option>
+      		<option value="2.5">Two and a half Hhurs</option>
+      		<option value="3">Three hours</option>
+   			</select>
+		</div>
+		<div class="form-group">
+			<label for="special">Special:</label>
+			<br><input type="special" class="form-control" id="special" placeholder="Enter Special" name="special">
+		</div>
+		<button type="sumbit" class="btn btn-success" onclick="doR()";>Sign up</button>
+		<button type="reset" class="btn btn-danger">Clear</button>
+
+	</form>
+    <script>
+    function doR(){
+	if(document.getElementById("username").value == ""){
+		alert("Please fill in username.");
+		document.getElementById("username").focus();
+		return false;
+	}
+	if(document.getElementById("email").value == ""){
+		alert("Please fill in eamil");
+		document.getElementById("email").focus();
+		return false;
+	}
+	if(document.getElementById("contactnumber").value == "" || document.getElementById("contactnumber").value.length != 8){
+		alert("Plase fill in contact number correctly");
+		document.getElementById("contactnumber").focus();
+		return false;
+	}
+	if(document.getElementById("pwd").value == ""){
+		alert("Please fill in password.");
+		document.getElementById("pwd").focus();
+		return false;
+	}
+	if(document.getElementById("residentialestate").value == ""){
+		alert("Please fill in Residential estate");
+		document.getElementById("residentialestate").focus();
+		return false;
+	}
+	document.getElementById("doF1").submit()		
+		}
+	var is_ie = false;
+
+	var uid = '0';
+
+	var fbclear = '0';
+
+
+    </script>
+		</div>
+	</div>
+</div>
+</article>
+<footer class="container-fluid text-center">
+  <p>All Right Reserved</p>
+  <img src="static/school.png" alt="school" height="35">
+</footer>
+</body>
+</html>
